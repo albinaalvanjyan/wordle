@@ -67,7 +67,7 @@ fetch('words.txt')
         const board_content = document.getElementById("board_content");
         const boardclose = document.getElementById("boardclose");
         leadersboard.addEventListener("click", function () {
-            let users = JSON.parse(localStorage.getItem("users"))||[];
+            let users = JSON.parse(localStorage.getItem("users")) || [];
             const validUsers = users.filter(user => user.nickname && user.nickname.trim() !== "");
             if (validUsers.length > 0) {
                 board_content.innerHTML = "";
@@ -111,6 +111,8 @@ fetch('words.txt')
         const allCubes = document.querySelectorAll("#cubes > div");
         const cubeArray = Array.from(allCubes);
         let btn = [...keyboard.querySelectorAll("button")];
+        let btn_mobile = [...keyboard_mobile.querySelectorAll("button")];
+
 
         let currentIndex = 0;
         let currentRow = 0;
@@ -135,16 +137,19 @@ fetch('words.txt')
                 let letter = guess[i];
                 let cube = cubeArray[currentIndex - 5 + i];
                 let findequal = btn.find(el => el.textContent.toLowerCase() == letter);
-
+                let findequal_mobile = btn_mobile.find(el => el.textContent.toLowerCase() == letter);
                 if (guess[i] === winword[i] && findequal) {
                     findequal.style.setProperty("background-color", "#538d4e", "important");
+                    findequal_mobile.style.setProperty("background-color", "#538d4e", "important");
                     cube.classList.add("green");
                 } else if (winword.includes(guess[i]) && findequal) {
                     cube.classList.add("orange");
                     findequal.style.setProperty("background-color", "#b59f3b", "important");
+                    findequal_mobile.style.setProperty("background-color", "#b59f3b", "important");
                 } else {
                     cube.classList.add("grey");
                     findequal.style.setProperty("background-color", "#4d4d4e", "important");
+                    findequal_mobile.style.setProperty("background-color", "#4d4d4e", "important");
                 }
             }
 
@@ -209,6 +214,32 @@ fetch('words.txt')
             clickSound.pause();
             clickSound.currentTime = 0;
         });
+        keyboard_mobile.addEventListener("mousedown", function (event) {
+            const key = event.target.textContent.toLowerCase();
+            console.log(key);
+
+            clickSound.currentTime = 0;
+            clickSound.play();
+
+            if (key.length === 1 && key >= "a" && key <= "z") {
+                if (currentWord.length < 5) {
+                    cubeArray[currentIndex].textContent = key.toUpperCase();
+                    currentWord.push(key);
+                    currentIndex++;
+                }
+            } else if (event.target.id === "enter_mobile" && currentWord.length === 5) {
+                processGuess();
+            } else if (event.target.id === "clearbtn_mobile" && currentWord.length > 0) {
+                currentIndex--;
+                cubeArray[currentIndex].textContent = "";
+                currentWord.pop();
+            }
+        });
+
+        keyboard_mobile.addEventListener("mouseup", function () {
+            clickSound.pause();
+            clickSound.currentTime = 0;
+        });
         let isKeyPressed = false;
 
 
@@ -259,6 +290,9 @@ fetch('words.txt')
             });
 
             btn.forEach(el => {
+                el.style.removeProperty('background-color');
+            });
+            btn_mobile.forEach(el => {
                 el.style.removeProperty('background-color');
             });
 

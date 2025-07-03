@@ -327,11 +327,11 @@ li {
     gap: 10px;
 }
 
-#enter {
+#enter,#enter_mobile {
     width: 100px !important;
 }
 
-#clearbtn {
+#clearbtn,#clearbtn_mobile {
     width: 70px !important;
 }
 
