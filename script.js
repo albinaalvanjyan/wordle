@@ -15,6 +15,9 @@ fetch('words.txt')
                 logindiv.style.display = "none";
             }, 500)
         })
+        document.body.addEventListener('dblclick', function(event) {
+            event.preventDefault();
+        });
         const nickname = document.getElementById("nickname");
         const savebtn = document.getElementById("savebtn");
 
@@ -133,23 +136,45 @@ fetch('words.txt')
                 return false;
             }
 
+            let status = Array(5).fill("absent"); 
+            let winwordLetters = winword.split("");
+            let used = Array(5).fill(false); 
+            for (let i = 0; i < 5; i++) {
+                if (guess[i] === winword[i]) {
+                    status[i] = "correct"; 
+                    used[i] = true;
+                }
+            }
+            for (let i = 0; i < 5; i++) {
+                if (status[i] === "correct") continue; 
+            
+                for (let j = 0; j < 5; j++) {
+                    if (!used[j] && guess[i] === winword[j]) {
+                        status[i] = "present"; 
+                        used[j] = true;
+                        break;
+                    }
+                }
+            }
             for (let i = 0; i < 5; i++) {
                 let letter = guess[i];
                 let cube = cubeArray[currentIndex - 5 + i];
+            
                 let findequal = btn.find(el => el.textContent.toLowerCase() == letter);
                 let findequal_mobile = btn_mobile.find(el => el.textContent.toLowerCase() == letter);
-                if (guess[i] === winword[i] && findequal) {
-                    findequal.style.setProperty("background-color", "#538d4e", "important");
-                    findequal_mobile.style.setProperty("background-color", "#538d4e", "important");
+            
+                if (status[i] === "correct") {
                     cube.classList.add("green");
-                } else if (winword.includes(guess[i]) && findequal) {
+                    findequal?.style.setProperty("background-color", "#538d4e", "important");
+                    findequal_mobile?.style.setProperty("background-color", "#538d4e", "important");
+                } else if (status[i] === "present") {
                     cube.classList.add("orange");
-                    findequal.style.setProperty("background-color", "#b59f3b", "important");
-                    findequal_mobile.style.setProperty("background-color", "#b59f3b", "important");
+                    findequal?.style.setProperty("background-color", "#b59f3b", "important");
+                    findequal_mobile?.style.setProperty("background-color", "#b59f3b", "important");
                 } else {
                     cube.classList.add("grey");
-                    findequal.style.setProperty("background-color", "#4d4d4e", "important");
-                    findequal_mobile.style.setProperty("background-color", "#4d4d4e", "important");
+                    findequal?.style.setProperty("background-color", "#4d4d4e", "important");
+                    findequal_mobile?.style.setProperty("background-color", "#4d4d4e", "important");
                 }
             }
 
@@ -173,9 +198,11 @@ fetch('words.txt')
             }
 
             if (currentIndex === 30 && guess !== winword) {
+                losediv.insertAdjacentHTML("afterbegin", `<p>The word is ${winword.toUpperCase()}!</p>`);
                 setTimeout(() => {
                     losediv.classList.add("showlost");
                 }, 600);
+               
                 const lostclose = document.getElementById("loseclose");
                 lostclose.addEventListener("click", () => {
                     losediv.classList.remove("showlost");
