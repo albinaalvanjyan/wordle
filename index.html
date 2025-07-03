@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle</title>
+</head>
+
+<body id="body">
+    <div id="login">
+        <p>Create your NickName!!!</p>
+        <input type="text" placeholder="NickName" id="nickname">
+        <button id="savebtn">Save</button>
+        <div id="loginclose"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+    </div>
+    <div class="start" id="start">
+        <img src="logowordle.webp" width="150px" alt="">
+        <h1>Wordle</h1>
+        <p>Get 6 chances to guess a 5-letter word.</p>
+        <div class="startbtns"> <button id="start-button">Play</button>
+            <button id="leadersboard">LeaderBoard</button>
+        </div>
+    </div>
+    <div id="board">
+        <div id="board_content"></div>
+        <div id="boardclose"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+    </div>
+    <div id="rules">
+        <div id="close"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+        <h2>How to play?</h2>
+        <p>Guess the Wordle in 6 tries.</p>
+        <ul>
+            <li>Each guess must be a valid 5-letter word.</li>
+            <li>The color of the tiles will change to show how close your guess was to the word.</li>
+        </ul>
+        <img src="rules.png" width="200px" alt="">
+        <div class="icons">
+            <div class="green"></div> <span>-The letter is in the word and in the correct spot.</span>
+        </div>
+        <div class="icons">
+            <div class="orange"></div><span>-The letter is in the word but in the wrong spot.</span>
+        </div>
+        <div class="icons">
+            <div class="grey"></div><span>-The letter is not in the word in any spot.</span>
+        </div>
+    </div>
+    <div id="cubes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div id="keyboard">
+        <div class="row_up">
+            <button>q</button>
+            <button>w</button>
+            <button>e</button>
+            <button>r</button>
+            <button>t</button>
+            <button>y</button>
+            <button>u</button>
+            <button>i</button>
+            <button>o</button>
+            <button>p</button>
+        </div>
+        <div class="row_middle">
+            <button>a</button>
+            <button>s</button>
+            <button>d</button>
+            <button>f</button>
+            <button>g</button>
+            <button>h</button>
+            <button>j</button>
+            <button>k</button>
+            <button>l</button>
+        </div>
+        <div class="row_down">
+            <button id="enter">Enter</button>
+            <button>z</button>
+            <button>x</button>
+            <button>c</button>
+            <button>v</button>
+            <button>b</button>
+            <button>n</button>
+            <button>m</button>
+            <button id="clearbtn">
+                <svg id="clear" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M7.50006 5.5L4.05262 10.7909C3.71387 11.3107 3.69732 11.9772 4.00984 12.5133L7.50006 18.5H18.8588C19.7651 18.5 20.4999 17.7653 20.4999 16.8589V7.14109C20.4999 6.23474 19.7651 5.5 18.8588 5.5H7.50006Z"
+                        stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M10 8.5L17 15.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M10 15.5L16.9303 8.49996" stroke="#000000" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div id="keyboard_mobile">
+        <button>q</button>
+        <button>w</button>
+        <button>e</button>
+        <button>r</button>
+        <button>t</button>
+        <button>y</button>
+        <button>u</button>
+        <button>i</button>
+        <button>o</button>
+        <button>p</button>
+        <button>a</button>
+        <button>s</button>
+        <button>d</button>
+        <button>f</button>
+        <button>g</button>
+        <button>h</button>
+        <button>j</button>
+        <button>k</button>
+        <button>l</button>
+        <button id="enter">Enter</button>
+        <button>z</button>
+        <button>x</button>
+        <button>c</button>
+        <button>v</button>
+        <button>b</button>
+        <button>n</button>
+        <button>m</button>
+        <button id="clearbtn">
+            <svg id="clear" width="100%" height="100%" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M7.50006 5.5L4.05262 10.7909C3.71387 11.3107 3.69732 11.9772 4.00984 12.5133L7.50006 18.5H18.8588C19.7651 18.5 20.4999 17.7653 20.4999 16.8589V7.14109C20.4999 6.23474 19.7651 5.5 18.8588 5.5H7.50006Z"
+                    stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M10 8.5L17 15.5" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M10 15.5L16.9303 8.49996" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+
+    </div>
+    <div id="win">
+        <h2>You win!!!</h2>
+        <button onclick='newgame(this)'>New Game</button>
+        <div id="winclose"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+    </div>
+    <div id="notinlist">
+        <div id="messageclose"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+        <p>Not in word list!!!</p>
+
+    </div>
+    <div id="lost">
+        <h2>You lose!!!</h2>
+        <button onclick='newgame(this)'>New Game</button>
+        <div id="loseclose"><svg width="100%" height="100%" viewBox="0 0 25 25" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+
+                <title>cross</title>
+                <desc>Created with Sketch Beta.</desc>
+                <defs>
+
+                </defs>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+                    <g id="Icon-Set-Filled" sketch:type="MSLayerGroup" transform="translate(-469.000000, -1041.000000)"
+                        fill="#000000">
+                        <path
+                            d="M487.148,1053.48 L492.813,1047.82 C494.376,1046.26 494.376,1043.72 492.813,1042.16 C491.248,1040.59 488.712,1040.59 487.148,1042.16 L481.484,1047.82 L475.82,1042.16 C474.257,1040.59 471.721,1040.59 470.156,1042.16 C468.593,1043.72 468.593,1046.26 470.156,1047.82 L475.82,1053.48 L470.156,1059.15 C468.593,1060.71 468.593,1063.25 470.156,1064.81 C471.721,1066.38 474.257,1066.38 475.82,1064.81 L481.484,1059.15 L487.148,1064.81 C488.712,1066.38 491.248,1066.38 492.813,1064.81 C494.376,1063.25 494.376,1060.71 492.813,1059.15 L487.148,1053.48"
+                            id="cross" sketch:type="MSShapeGroup">
+
+                        </path>
+                    </g>
+                </g>
+            </svg></div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
