@@ -215,6 +215,8 @@ fetch('words.txt')
             clickSound.currentTime = 0;
         });
         keyboard_mobile.addEventListener("mousedown", function (event) {
+            const button = event.target.closest('button');
+            if (!button) return;
             const key = event.target.textContent.toLowerCase();
             console.log(key);
 
@@ -229,7 +231,7 @@ fetch('words.txt')
                 }
             } else if (event.target.id === "enter_mobile" && currentWord.length === 5) {
                 processGuess();
-            } else if (event.target.id === "clearbtn_mobile" && currentWord.length > 0) {
+            } else if (event.target.id === "clear_mobile" && currentWord.length > 0) {
                 currentIndex--;
                 cubeArray[currentIndex].textContent = "";
                 currentWord.pop();
